@@ -14,3 +14,14 @@ import Testing
     #expect(response.statusCode == 200, "success")
     print(response.value[0].items?[0])
 }
+
+@Test func getSubjectByID() async throws {
+    let client = BgmClient(
+        configuration: BgmClient.Configuration(url: "test", device: "test"),
+        accessToken: "rBMNJCYySHvBtV25JtfWu0446uMeKFvxcTb2hwIb")
+    let request = BgmKit.Paths.getSubjectByIDAPI(subjectID: 10)
+    let response = try await client.send(request)
+    #expect(response.statusCode == 200, "success")
+    print(response.value)
+    print(response.data.description)
+}
