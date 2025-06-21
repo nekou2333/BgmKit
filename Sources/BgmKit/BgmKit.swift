@@ -35,7 +35,7 @@ final public class BgmClient {
         let url: String
         let device: String
 
-        init(url: String, device: String) {
+        public init(url: String, device: String) {
             self.url = url
             self.device = device
         }
