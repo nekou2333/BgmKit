@@ -24,7 +24,7 @@ final public class BgmClient {
         self.sessionConfiguration = sessionConfiguration
         self.delegate = delegate
 
-        self._apiClient = APIClient(baseURL: URL(string: "http://api.bgm.tv")) { configuration in
+        self._apiClient = APIClient(baseURL: URL(string: "https://api.bgm.tv")) { configuration in
             configuration.sessionConfiguration = sessionConfiguration
             configuration.delegate = self
             configuration.sessionDelegate = sessionDelegate
