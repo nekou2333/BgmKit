@@ -12,7 +12,7 @@ final public class BgmClient {
     private let sessionConfiguration: URLSessionConfiguration
     private let delegate: APIClientDelegate?
 
-    init(
+    public init(
         configuration: Configuration,
         sessionConfiguration: URLSessionConfiguration = .default,
         sessionDelegate: URLSessionDelegate? = nil,
