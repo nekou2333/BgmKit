@@ -36,3 +36,14 @@ import Testing
     print(response.value)
     print(response.data.description)
 }
+
+@Test func getSelfInfo() async throws {
+    let client = BgmClient(
+        configuration: BgmClient.Configuration(url: "test", device: "test"),
+        accessToken: "rBMNJCYySHvBtV25JtfWu0446uMeKFvxcTb2hwIb")
+    let request = BgmKit.Paths.getSelfInfoAPI()
+    let response = try await client.send(request)
+    #expect(response.statusCode == 200, "success")
+    #expect(response.value.id == 876475, "id check")
+    print(response.value)
+}
