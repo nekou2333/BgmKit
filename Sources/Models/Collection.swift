@@ -1,11 +1,11 @@
 import Foundation
 
 public struct Collection: Codable, Hashable {
-  public var onHold: Int
-  public var dropped: Int
-  public var wish: Int
-  public var collect: Int
-  public var doing: Int
+  public var onHold: Int?
+  public var dropped: Int?
+  public var wish: Int?
+  public var collect: Int?
+  public var doing: Int?
 
   enum CodingKeys: String, CodingKey {
     case collect
@@ -15,13 +15,13 @@ public struct Collection: Codable, Hashable {
     case wish
   }
 
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
-    self.collect = try values.decode(Int.self, forKey: .collect)
-    self.doing = try values.decodeIfPresent(Int.self, forKey: .doing) ?? 0
-    self.dropped = try values.decode(Int.self, forKey: .dropped)
-    self.onHold = try values.decodeIfPresent(Int.self, forKey: .onHold) ?? 0
-    self.wish = try values.decode(Int.self, forKey: .wish)
+    self.collect = try values.decodeIfPresent(Int.self, forKey: .collect)
+    self.doing = try values.decodeIfPresent(Int.self, forKey: .doing) 
+    self.dropped = try values.decodeIfPresent(Int.self, forKey: .dropped) 
+    self.onHold = try values.decodeIfPresent(Int.self, forKey: .onHold) 
+    self.wish = try values.decodeIfPresent(Int.self, forKey: .wish)
   }
 
   public func encode(to encoder: Encoder) throws {
