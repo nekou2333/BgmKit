@@ -38,3 +38,10 @@ let client = BgmClient(
     #expect(response.value.id == 876475, "id check")
     print(response.value)
 }
+
+@Test func getSubjectCharacters() async throws {
+    let request = BgmKit.Paths.getSubjectCharactersAPI(subjectID: 526816)
+    let response = try await client.send(request)
+    #expect(response.statusCode == 200, "check status code")
+    print(response.value)
+}
