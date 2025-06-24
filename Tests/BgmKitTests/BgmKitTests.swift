@@ -25,3 +25,14 @@ import Testing
     print(response.value)
     print(response.data.description)
 }
+
+@Test func getSubjectPersons() async throws {
+    let client = BgmClient(
+        configuration: BgmClient.Configuration(url: "test", device: "test"),
+        accessToken: "rBMNJCYySHvBtV25JtfWu0446uMeKFvxcTb2hwIb")
+    let request = BgmKit.Paths.getSubjectPersonsAPI(subjectID: 526816)
+    let response = try await client.send(request)
+    #expect(response.statusCode == 200, "success")
+    print(response.value)
+    print(response.data.description)
+}
