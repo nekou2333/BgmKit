@@ -6,10 +6,14 @@ extension Paths {
         Request(path: "/calendar", method: "GET", id: "calendar")
     }
 
-    public struct CalenderAPIResponseItem: Codable, Hashable {
+    public struct CalenderAPIResponseItem: Codable, Hashable, Identifiable {
 
         public var weekday: Weekday?
         public var items: [BgmKit.LegacySubjectSmall]?
+
+        public var id: Int {
+            self.weekday?.id ?? 0
+        }
 
         public struct Weekday: Codable, Hashable, Identifiable {
             public var id: Int
