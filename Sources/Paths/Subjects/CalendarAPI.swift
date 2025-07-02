@@ -9,7 +9,7 @@ extension Paths {
     public struct CalenderAPIResponseItem: Codable, Hashable, Identifiable {
 
         public var weekday: Weekday?
-        public var items: [BgmKit.LegacySubjectSmall]?
+        public var items: [BgmKit.LegacySubjectSmall]
 
         public var id: Int {
             self.weekday?.id ?? 0
@@ -45,7 +45,7 @@ extension Paths {
         }
 
         public init(
-            items: [BgmKit.LegacySubjectSmall]? = nil,
+            items: [BgmKit.LegacySubjectSmall] = [],
             weekday: Paths.CalenderAPIResponseItem.Weekday? = nil
         ) {
             self.items = items
